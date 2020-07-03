@@ -14,6 +14,7 @@
 		0DC84F5424AFD91C00C8A56C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DC84F5324AFD91C00C8A56C /* Assets.xcassets */; };
 		0DC84F5724AFD91C00C8A56C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DC84F5524AFD91C00C8A56C /* LaunchScreen.storyboard */; };
 		0DC84F6224AFD91D00C8A56C /* Ble_SiliconLabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC84F6124AFD91D00C8A56C /* Ble_SiliconLabTests.swift */; };
+		0DC84F7324AFF38800C8A56C /* CBManager+Peripheral_Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC84F7224AFF38800C8A56C /* CBManager+Peripheral_Delegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		0DC84F6124AFD91D00C8A56C /* Ble_SiliconLabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ble_SiliconLabTests.swift; sourceTree = "<group>"; };
 		0DC84F6324AFD91D00C8A56C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0DC84F7124AFDA7F00C8A56C /* Ble-SiliconLab.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = "Ble-SiliconLab.entitlements"; sourceTree = "<group>"; };
+		0DC84F7224AFF38800C8A56C /* CBManager+Peripheral_Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CBManager+Peripheral_Delegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +90,7 @@
 				0DC84F5324AFD91C00C8A56C /* Assets.xcassets */,
 				0DC84F5524AFD91C00C8A56C /* LaunchScreen.storyboard */,
 				0DC84F5824AFD91C00C8A56C /* Info.plist */,
+				0DC84F7224AFF38800C8A56C /* CBManager+Peripheral_Delegate.swift */,
 			);
 			path = "Ble-SiliconLab";
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DC84F4F24AFD91600C8A56C /* ViewController.swift in Sources */,
+				0DC84F7324AFF38800C8A56C /* CBManager+Peripheral_Delegate.swift in Sources */,
 				0DC84F4B24AFD91600C8A56C /* AppDelegate.swift in Sources */,
 				0DC84F4D24AFD91600C8A56C /* SceneDelegate.swift in Sources */,
 			);

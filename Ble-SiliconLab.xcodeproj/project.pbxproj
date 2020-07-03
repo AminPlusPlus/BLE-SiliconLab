@@ -14,6 +14,7 @@
 		0DC84F5424AFD91C00C8A56C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0DC84F5324AFD91C00C8A56C /* Assets.xcassets */; };
 		0DC84F5724AFD91C00C8A56C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0DC84F5524AFD91C00C8A56C /* LaunchScreen.storyboard */; };
 		0DC84F6224AFD91D00C8A56C /* Ble_SiliconLabTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DC84F6124AFD91D00C8A56C /* Ble_SiliconLabTests.swift */; };
+		0DC84F6F24AFD98900C8A56C /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0DC84F6E24AFD98900C8A56C /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		0DC84F5D24AFD91D00C8A56C /* Ble-SiliconLabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Ble-SiliconLabTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0DC84F6124AFD91D00C8A56C /* Ble_SiliconLabTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ble_SiliconLabTests.swift; sourceTree = "<group>"; };
 		0DC84F6324AFD91D00C8A56C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0DC84F6E24AFD98900C8A56C /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0DC84F6F24AFD98900C8A56C /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -64,6 +67,7 @@
 				0DC84F4924AFD91600C8A56C /* Ble-SiliconLab */,
 				0DC84F6024AFD91D00C8A56C /* Ble-SiliconLabTests */,
 				0DC84F4824AFD91600C8A56C /* Products */,
+				0DC84F6D24AFD98900C8A56C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +101,14 @@
 				0DC84F6324AFD91D00C8A56C /* Info.plist */,
 			);
 			path = "Ble-SiliconLabTests";
+			sourceTree = "<group>";
+		};
+		0DC84F6D24AFD98900C8A56C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0DC84F6E24AFD98900C8A56C /* NetworkExtension.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,6 +374,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ble-SiliconLab/Ble-SiliconLab.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4M78CKJZX;
 				INFOPLIST_FILE = "Ble-SiliconLab/Info.plist";
@@ -380,6 +393,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "Ble-SiliconLab/Ble-SiliconLab.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = L4M78CKJZX;
 				INFOPLIST_FILE = "Ble-SiliconLab/Info.plist";

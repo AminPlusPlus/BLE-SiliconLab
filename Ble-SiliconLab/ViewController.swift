@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     
     //MARK:-UI Elements
     @IBOutlet weak var batteryImage : UIImageView!
-    @IBOutlet weak var batterlyLabel : UILabel!
+    @IBOutlet weak var lightSwitch : UISwitch!
     
     
     //MARK:- CBluetooth

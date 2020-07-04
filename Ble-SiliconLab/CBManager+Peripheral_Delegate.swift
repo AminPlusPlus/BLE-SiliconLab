@@ -30,7 +30,6 @@ extension ViewController :  CBCentralManagerDelegate {
            guard peripheral.name != nil else {return}
            if peripheral.name! == "Thunder Sense #33549" {
                print("Sensor Found!")
-               print(advertisementData)
                //stopScan
                cbCentralManager.stopScan()
                //connect
@@ -41,7 +40,13 @@ extension ViewController :  CBCentralManagerDelegate {
        
        func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
            print("Connected : \(peripheral.name ?? "No Name")")
-           peripheral.discoverServices(nil)
+          
+           //it' discover all service
+           //peripheral.discoverServices(nil)
+           
+           //discover EnvironmentalSensing,AutomationIO
+           peripheral.discoverServices([AutomationIO,EnvironmentalSensing])
+        
            peripheral.delegate = self
        }
        
@@ -55,30 +60,35 @@ extension ViewController :  CBCentralManagerDelegate {
 //MARK:- CBPeripheralDelegate
 extension ViewController : CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didDiscoverServices error: Error?) {
-       if let services = peripheral.services {
-        for service in services {
-            
-            if service.uuid == AutomationIO {
-                   //environment found
-                   print(service.uuid.uuidString)
-                   peripheral.discoverCharacteristics(nil, for: service)
-               
-             }
-            }
+ 
+        if let services = peripheral.services {
+            //discover characteristics of services
+            for service in services {
+              peripheral.discoverCharacteristics(nil, for: service)
+          }
         }
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverCharacteristicsFor service: CBService, error: Error?) {
         
         if let charac = service.characteristics {
-            for chactecteristics in charac {
+            for characteristic in charac {
                
-                if chactecteristics.uuid == Digital {
-                     print("Digital : \(chactecteristics)")
-                     setDigitalOutput(1, on: true, characteristic: chactecteristics)
-                    //peripheral.readValue(for: chactecteristics)
-               }
-               
+                //MARK:- Light Value
+                if characteristic.uuid == Digital {
+                      //write value
+                     setDigitalOutput(1, on: true, characteristic: characteristic)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
+                        self.setDigitalOutput(1, on: false, characteristic: characteristic)
+                    })
+                    
+                }
+                //MARK:- Temperature Read Value
+                else if characteristic.uuid == Temperature {
+                    //read value
+                    //peripheral.readValue(for: characteristic)
+                    peripheral.setNotifyValue(true, for: characteristic)
+                }
                
             }
         }
@@ -87,10 +97,11 @@ extension ViewController : CBPeripheralDelegate {
     
 
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
-            if characteristic.uuid == Temperature {
+          
+        if characteristic.uuid == Temperature {
                            print("Temp : \(characteristic)")
                 let temp = characteristic.tb_uint16Value()
-             
+
                 print(Double(temp!) / 100)
             }
     }

@@ -28,7 +28,7 @@ extension ViewController :  CBCentralManagerDelegate {
        
        func centralManager(_ central: CBCentralManager, didDiscover peripheral: CBPeripheral, advertisementData: [String : Any], rssi RSSI: NSNumber) {
            guard peripheral.name != nil else {return}
-           if peripheral.name! == "Thunder Sense #33549" {
+            if peripheral.name! == "Thunder Sense #33549" {
                print("Sensor Found!")
                //stopScan
                cbCentralManager.stopScan()
@@ -77,12 +77,13 @@ extension ViewController : CBPeripheralDelegate {
                 //MARK:- Light Value
                 if characteristic.uuid == Digital {
                       //write value
-                     setDigitalOutput(1, on: true, characteristic: characteristic)
+                    setDigitalOutput(1, on: true, characteristic: characteristic)
                     DispatchQueue.main.asyncAfter(deadline: .now() + 5, execute: {
                         self.setDigitalOutput(1, on: false, characteristic: characteristic)
                     })
                     
                 }
+                    
                 //MARK:- Temperature Read Value
                 else if characteristic.uuid == Temperature {
                     //read value
@@ -110,17 +111,7 @@ extension ViewController : CBPeripheralDelegate {
         print("WRITE VALUE : \(characteristic)")
     }
     
-//    func writeValueForCharacteristic(_ uuid: CBUUID, value: Data) {
-//        guard let characteristics = self.findCharacteristics(uuid, properties: .write) else {
-//            return
-//        }
-//
-//        characteristics.forEach({
-//            log.debug("writing value to characteristic \($0)")
-//            self.cbPeripheral.writeValue(value, for: $0, type: .withResponse)
-//        })
-//    }
-   
+    
     fileprivate func setDigitalOutput(_ index: Int, on: Bool, characteristic  :CBCharacteristic) {
            let shift = UInt(index) * UInt(digitalBits)
            var mask = ledMask

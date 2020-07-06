@@ -6,12 +6,12 @@
 //  Copyright © 2020 Aminjoni Abdullozoda. All rights reserved.
 //
 
-import UIKit
-import CoreBluetooth
 /// Environmental Sensing (org.bluetooth.service.environmental_sensing)
 let EnvironmentalSensing = CBUUID(string: "0x181A")
 let AutomationIO = CBUUID(string: "0x1815")
 
+import UIKit
+import CoreBluetooth
 class ViewController: UIViewController {
     
     //MARK:-UI Elements
